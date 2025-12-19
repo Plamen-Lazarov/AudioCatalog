@@ -3,6 +3,10 @@ package models;
 public class Podcast extends MediaObject {
     private int episodeNumber;
 
+    public Podcast() {
+        super("", "", "", 0, 0);
+    }
+
     public Podcast(String title, String host, String genre, int year, int durationSeconds, int episodeNumber) {
         super(title, host, genre, year, durationSeconds);
         this.episodeNumber = episodeNumber;

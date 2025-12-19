@@ -9,6 +9,9 @@ public abstract class MediaObject implements Comparable<MediaObject> {
     private int year;
     private int durationSeconds;
 
+    public MediaObject() {
+    }
+
     public MediaObject(String title, String author, String genre, int year, int durationSeconds) {
         this.title = title;
         this.author = author;
@@ -69,10 +72,10 @@ public abstract class MediaObject implements Comparable<MediaObject> {
     public boolean equals(Object other) {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
-        MediaObject mediaObject = (MediaObject) other;
-        return year == mediaObject.year &&
-                Objects.equals(title, mediaObject.title) &&
-                Objects.equals(author, mediaObject.author);
+        MediaObject that = (MediaObject) other;
+        return year == that.year &&
+                Objects.equals(title, that.title) &&
+                Objects.equals(author, that.author);
     }
 
     @Override
