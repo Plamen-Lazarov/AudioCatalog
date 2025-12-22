@@ -1,6 +1,19 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.util.Objects;
+
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "type"
+)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Song.class, name = "Song"),
+        @JsonSubTypes.Type(value = Podcast.class, name = "Podcast"),
+        @JsonSubTypes.Type(value = Audiobook.class, name = "Audiobook")
+})
 
 public abstract class MediaObject implements Comparable<MediaObject> {
     private String title;
